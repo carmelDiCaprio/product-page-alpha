@@ -1,0 +1,72 @@
+
+<div class="col-xs-12">
+
+    <!-- Form . Only show if inputted down -->
+    <form novalidate [formGroup]= "form" (ngSubmit) = "submitForm(form)" *ngIf="form">
+
+    <!-- Step 1 Choose Type -->
+      <div class="form-group well">
+        <label for="step1"> What Type is Your Picture?  </label>
+          <select id="step1" #palletType formControlName ="type">
+            <!-- Loop through pallet types -->
+            <option *ngFor = "let opt of palletOptions ; let i = index " value="{{opt}}"> {{ opt }} </option>
+          </select>
+      </div>
+      <hr>
+
+      <!-- Step 2 Choose Pallet Size -->
+      <div class="form-group well" *ngIf="form.controls.type">
+        <label for="step2"> What Size Do You Want? </label>
+          <select id="step2" #sizeType formControlName="size" >
+            <!-- Loop through different pallet sizes -->
+            <option *ngFor ="let opt of sizes; let i = index " value="{{opt}}" > {{ opt }} - {{ prices[i] }} </option>
+          </select>
+          <button class="btn btn-sm btn-warning" style="margin-left:5px" > Show Size Guide </button> 
+      </div>
+      <hr>
+
+      <!-- Step 3 - Is Your Photo Ready? -->
+      <div class="form-group well" *ngIf="form.controls.size">
+          <label for="step3" class="text-left" > Do You Have Your Picture? </label>
+              <input class="text-right" type="radio" value="yes" formControlName="pictureReady" > Yes <br>
+              <input class="text-right" type="radio" value="no" formControlName="pictureReady" > No
+      </div>
+      <hr>
+
+
+
+      <!-- Step 4 - Add Picture -->
+        <div class="form-group well" *ngIf="form.controls.pictureReady.value == 'yes'" >
+          <label for="step4"> Choose Your Picture  </label>
+            <input id="step4" type="file" #picInput formControlName="photo" (change)= "photoChange(photo,$event)"/>
+            <div>
+                  <!-- Display picture here OR display it on the LEFT HAND under te main images  -->
+            </div>
+        </div>
+        <hr>
+
+
+      <!-- Step 5a - Add to Cart - Picture -->
+      <div class="form-group" *ngIf="form.controls.pictureReady.value =='yes' && form.controls.photo.value ">
+        <button class="btn btn-lg cta" > Add To Cart </button>
+            <h4 class="alert alert-success" role="alert"> .... Some Reassuring Message About Your Order </h4>
+            <!-- Safety Seals to reassure customer -->
+          <!--  <div class="col-xs-3 thumbnail" *ngFor="let seal of safeSeals; let i = index"> <img src={{seal}} /> </div> -->
+      </div>
+
+
+
+      <!-- Step 5b - Add to Cart - No Picture -->
+      <div class="form-group" *ngIf="form.controls.pictureReady.value == 'no' ">
+        <button class="btn btn-lg cta"> Reserve My Pallet </button>
+            <h4 class="alert alert-warning" role="alert"> .... You dont have a palllet,thats ok, check out as a Gift Card </h4>
+            <!-- Safety Seals to reassure customer -->
+          <!--  <div class="col-xs-3 thumbnail" *ngFor="let seal of safeSeals; let i = index"> <img src={{seal}} /> </div> -->
+      </div>
+
+
+
+    </form>
+  <!-- End Form -->
+
+</div>

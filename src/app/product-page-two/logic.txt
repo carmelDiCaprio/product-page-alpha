@@ -1,0 +1,9 @@
+
+
+Components:
+
+1) Left Side of the Product Page --> Pictures
+
+2) Right Hand Side of The Product Page 
+  -2a) Product Description/ Review / Main Point component
+  -2b) Form Steps

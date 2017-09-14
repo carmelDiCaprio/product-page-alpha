@@ -1,0 +1,39 @@
+
+.thumbnail {
+    curosor:pointer;
+}
+
+.spacer {
+  height:5vh;
+  width:100%;
+/*  border:2px solid pink;*/
+/*  margin-top:5vh;
+  margin-bottom:5vh;
+*/
+}
+
+.spacer-two {
+  height:10vh;
+  width:100%;
+/*  border:2px solid pink;*/
+/*  margin-top:5vh;
+  margin-bottom:5vh;
+*/
+}
+
+
+.photo-upload-space{
+
+  height:auto;
+  width:auto;
+}
+
+.cp-title{
+    font-size: 24px;
+    color:
+}
+
+.step {
+  color: #e6930a;
+  size: 1.2em; 
+}

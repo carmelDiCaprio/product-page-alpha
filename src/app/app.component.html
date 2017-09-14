@@ -1,3 +1,16 @@
-<h1>
-  {{title}}
-</h1>
+
+
+<div class="container">
+  <div class="row" >
+      <ul class="nav nav-pills">
+        <li role="presentation" class="active"> <a href='#'> Home</a></li>
+        <li role="presentation"><a [routerLink] = '["/product-page"]' > Custom Pallets </a></li>
+        <li role="presentation"><a [routerLink]='["/product-page2"]'> Custom Pallets Two </a></li>
+        <li role="presentation"><a [routerLink]="['/product-page3']"> Custome Pallet Three </a> </li> 
+      </ul>
+  </div>
+</div>
+
+<div class="container">
+<router-outlet> </router-outlet>
+</div>

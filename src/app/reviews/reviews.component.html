@@ -1,0 +1,10 @@
+
+<div *ngIf="reviewInfo" class="">
+  <div *ngFor="let name of reviewInfo?.names; let i = index" class="col-xs-12 well">
+
+     " {{ reviewInfo.reviews[i] }} " - <strong> {{name}} </strong> "
+     <br> <br>
+
+    </div>
+    
+  </div>

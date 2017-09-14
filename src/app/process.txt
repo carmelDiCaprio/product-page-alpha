@@ -1,0 +1,9 @@
+
+
+1) Create the Component to represent the Nav Bar based on current CXBO one
+
+2) Add the form elements to the product page
+
+3)
+
+4)

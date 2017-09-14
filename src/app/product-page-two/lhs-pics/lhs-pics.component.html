@@ -1,0 +1,16 @@
+<div class="spacer"> </div>
+<!-- Main Image LArge -->
+<div class="col-xs-12 text-center">
+   <!-- {{ images | slice:0:1 }} -->
+   <img src={{images|slice:0:1}} />
+
+
+</div>
+<div class="spacer"> </div>
+<!-- Smaller Images -->
+<div class="col-xs-4 text-center thumbnail" *ngFor="let image of images; let i = index ">
+
+    <img src= "{{ images| slice: i : i+1 }}" />
+    <!-- <img src=" {{ image }}" /> -->
+
+</div>

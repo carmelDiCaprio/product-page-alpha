@@ -1,0 +1,30 @@
+
+
+<div *ngIf="control == 'step-one' ">
+<p><a data-toggle="collapse" href="#footwear" aria-expanded="false" aria-controls="footwear">
+
+  <ng-content class=".header-one"> </ng-content>
+
+</a>
+</p>
+<div class="collapse" id="footwear">
+
+<ng-content select=".collapse-content-one"> </ng-content>
+
+</div>
+</div>
+
+
+<div *ngIf="control == 'step-two' ">
+<p><a data-toggle="collapse" href="#footwear" aria-expanded="false" aria-controls="footwear">
+
+  <ng-content class=".header-two"> </ng-content>
+
+</a>
+</p>
+<div class="collapse" id="footwear">
+
+<ng-content select=".collapse-content-two"> </ng-content>
+
+</div>
+</div>

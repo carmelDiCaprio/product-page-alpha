@@ -1,0 +1,107 @@
+
+<div class="container">
+  <div class="row">
+  <!-- LHS -->
+    <div class="col-xs-12 col-sm-6" *ngIf="storeProduct">
+    <div class="spacer"></div>
+      <img [src] = "storeProduct.images[0] " />
+
+    </div>
+
+    <!-- RHS -->
+    <div class="col-xs-12 col-sm-6" *ngIf="storeProduct">
+        <!-- Title -->
+        <h2> {{ storeProduct.name }} </h2>
+        <br>
+        <!-- Price  -->
+      <h3 [style.color]="red" > Price ${{storeProduct.prices[index] }}.00 </h3>
+        <br>
+        <hr>
+        <!-- Description -->
+        <ul class="nav nav-tabs">
+          <br>
+          <li class="active col-xs-4" (click)="togglePills('summary')"><a > Prodduct Summary </a></li>
+          <li class="col-xs-4"><a (click) ="togglePills('review')" > Product Revews </a></li>
+          <li class="col-xs-4"><a  (click) ="togglePills('video')"> Video </a></li>
+      </ul>
+        <div>
+            <div [innerHTML]= " storeProduct.details" *ngIf="selectedInfo.display == 'summary'">  </div>
+            <div *ngIf="selectedInfo.display == 'review'">
+                <div *ngFor="let review of storeProduct.reviews; let i = index "> {{review.review }}  - {{review.name}} </div>
+             </div>
+            <div *ngIf="selectedInfo.display == 'video'">
+                  <!-- Youtube Iframe -->
+                  <iframe width="560" height="315" src="https://www.youtube.com/embed/WHryvQQu9LU" frameborder="0" allowfullscreen></iframe>
+            </div>
+        </div>
+        <br>
+        <hr>
+
+
+
+
+        <!--  Form Options -->
+        <div>
+
+          <form novalidate>
+            <!-- Step 1 -->
+              <div class="form-group">
+                <p><a data-toggle="collapse" href="#footwear" aria-expanded="false" aria-controls="footwear">
+                  <span class="step"> Step 1 - Select Your Pallet To See Examples </span>
+                </a>
+              </p>
+              <div class="collapse" id="footwear">
+                <select (change) =" logPalletChange($event)" >
+                  <option *ngFor="let type of palletTypeArr" value="{{type}}" > {{ type }} </option>
+                </select>
+            </div>
+              </div>
+
+              <!-- Step 2 -->
+              <div class="form-group">
+                <p><a data-toggle="collapse" href="#footwear-two" aria-expanded="false" aria-controls="footwear">
+                  <span class="step"> Step 2 - Choose Pallet Size </span>
+                </a>
+              </p>
+              <div class="collapse" id="footwear-two">
+                <select (change) ="logSizeChange($event)" >
+                  <option *ngFor="let size of sizesArr"> {{ size }} </option>
+                </select>
+            </div>
+              </div>
+
+              <!-- Step 3 -->
+              <div class="form-group" >
+              <p><a data-toggle="collapse" href="#footwear-three" aria-expanded="false" aria-controls="footwear">
+                <span class="step"> Is Your Picture Ready? </span>
+              </a>
+            </p>
+            <div class="collapse" id="footwear-three">
+              <input type="radio" name="radioPic" (click)="picReady ='yes' "  > Yes <br>
+              <input type="radio" name="radioPic" (click)= "picReady = 'no'"  > No <br>
+              <br>
+              <input *ngIf="picReady == 'yes' " type="file" #fileInput [formControl]  = "fileInputFormControl" (change)="logPicChange($event)" />
+              <div *ngIf="picReady == 'no' "> Checkout now and send picture later </div>
+
+              </div>
+            </div>
+            <br>
+
+
+            <!-- Step 4 -->
+              <button type="button" class="btn btn-lg btn-success" *ngIf="picReady == 'yes'"> Add To Cart </button>
+              <button type="button" class="btn btn-lg btn-success" *ngIf="picReady == 'no'"> Reserve My Pallet  </button>
+
+              <div class="spacer"> </div>
+          </form>
+
+      </div>
+
+    </div>
+
+
+
+
+
+</div>
+</div>

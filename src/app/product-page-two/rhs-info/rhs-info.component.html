@@ -1,0 +1,21 @@
+
+<div class="col-xs-12" *ngIf="productObj">
+
+  <!-- Title of Product -->
+ <h3 class="text-left"> {{productObj.name }} </h3>
+
+  <!-- Price of Product Maybe ? -->
+   <h5 *ngIf="price"> Price - ${{ price }} </h5>
+    <hr>
+
+
+  <!-- Dynamic Content based on selected pill -->
+    <div class=" col-xs-12 well">
+      <strong> Dynamo Conent </strong> <p [innerHTML] = "productObj[contentType] "></p>
+      <!--  <div [innerHTML]= "{{ renderContentType(contentType) }}">  </div>  -->
+
+    </div>
+
+
+
+</div>

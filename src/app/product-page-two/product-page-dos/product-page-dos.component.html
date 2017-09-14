@@ -1,0 +1,38 @@
+
+<div class="container">
+
+<div class="row">
+
+
+<!-- Left Hand Side -->
+<div class="col-xs-12 col-sm-6">
+
+        <app-lhs-pics [images] = "productSelect?.images"></app-lhs-pics>
+
+    </div>
+
+
+
+<!-- Right Hand Side -->
+<div class="col-xs-12 col-sm-6">
+
+    <div class="col-xs-12">
+        <ul class="nav nav-tabs">
+          <li class="active" (click)="contentType = 'details'"><a>Summary</a></li>
+          <li (click)="contentType = 'reviews'"  ><a>Reviews</a></li>
+          <li (click)="contentType = 'mainPoints' "><a>Details</a></li>
+        </ul>
+    </div>
+      <!-- Pass information into the custom component below -->
+      <!-- Information -->
+        <app-rhs-info [productObj] = "this.productSelect$ | async" [sizeVariant] ="sizeVariant" [contentType] = "contentType" > </app-rhs-info>
+
+        <hr>
+
+      <!-- Form -->
+       <app-rhs-form [form] ="this.formTwo" [productObj] = "this.productSelect$ | async " [palletOptions] ="palletOptions" (pTypeListener) = "catchPalletChange($event)" (sizeListener) = "catchSizeChange($event)" ></app-rhs-form>
+
+  </div>
+
+</div>
+</div>
